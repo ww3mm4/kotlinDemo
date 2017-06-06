@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="data" type="demo.kotilndemo.OrgBean"/>
+        <variable name="presenter" type="demo.kotilndemo.Presenter"/>
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v) -> presenter.onSaveClick(data)}">
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="@{data.name}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center|left"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            app:iamgeUrl = "@{data.image}"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,65 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "demo.kotilndemo"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    //rxkotlin
+    compile 'io.reactivex.rxjava2:rxkotlin:2.0.3'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //retrofit2
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    //刷新
+    compile 'com.huxq17.xrefreshview:xrefreshview:3.6.9'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+
+    //kotlin和databinding之间的冲突
+    kapt "com.android.databinding:compiler:2.3.0"
+
+    //加图片
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    //okhttp
+    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+}
+repositories {
+    mavenCentral()
+}
